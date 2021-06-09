@@ -58,58 +58,62 @@ class _InputPageState extends State<InputPage> {
                 child: Row(
                   children: [
                     Expanded(
-                      child: GestureDetector(
-                        onTap: () {
-                          print('Tapped');
+                      child: ReusableCard(
+                        color: selectedGender == Gender.MALE
+                            ? activeCardColor
+                            : baseCardColor,
+                        childElement: IconContent(
+                          icon: FontAwesomeIcons.mars,
+                          label: 'MALE',
+                        ),
+                        onPress: () {
                           setState(() {
                             selectedGender = Gender.MALE;
                           });
                         },
-                        child: ReusableCard(
-                            color: selectedGender == Gender.MALE
-                                ? activeCardColor
-                                : baseCardColor,
-                            childElement: IconContent(
-                              icon: FontAwesomeIcons.mars,
-                              label: 'MALE',
-                            )),
                       ),
                     ),
                     Expanded(
-                        child: GestureDetector(
-                      onTap: () {
-                        print('Tapped');
-                        setState(() {
-                          selectedGender = Gender.FEMALE;
-                        });
-                      },
                       child: ReusableCard(
-                          color: selectedGender == Gender.FEMALE
-                              ? activeCardColor
-                              : baseCardColor,
-                          childElement: IconContent(
-                            icon: FontAwesomeIcons.venus,
-                            label: 'FEMALE',
-                          )),
-                    )),
+                        color: selectedGender == Gender.FEMALE
+                            ? activeCardColor
+                            : baseCardColor,
+                        childElement: IconContent(
+                          icon: FontAwesomeIcons.venus,
+                          label: 'FEMALE',
+                        ),
+                        onPress: () {
+                          setState(() {
+                            selectedGender = Gender.FEMALE;
+                          });
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
               Expanded(
                   flex: 4,
                   child: ReusableCard(
-                      color: baseCardColor, childElement: Container())),
+                    color: baseCardColor,
+                    childElement: Container(),
+                    onPress: () {},
+                  )),
               Expanded(
                 flex: 4,
                 child: Row(
                   children: [
                     Expanded(
                       child: ReusableCard(
-                          color: baseCardColor, childElement: Container()),
+                          color: baseCardColor,
+                          childElement: Container(),
+                          onPress: () {}),
                     ),
                     Expanded(
                       child: ReusableCard(
-                          color: baseCardColor, childElement: Container()),
+                          color: baseCardColor,
+                          childElement: Container(),
+                          onPress: () {}),
                     ),
                   ],
                 ),
