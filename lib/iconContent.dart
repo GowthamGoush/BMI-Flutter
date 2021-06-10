@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'constants.dart';
 
 class IconContent extends StatelessWidget {
   IconContent({required this.icon, required this.label});
@@ -22,7 +23,7 @@ class IconContent extends StatelessWidget {
         Text(
           label,
           style: GoogleFonts.balooTammudu(
-            color: Color(0xFF8D8E98),
+            color: Color(kFontColor),
             fontSize: 18.0,
             letterSpacing: 3.5,
           ),

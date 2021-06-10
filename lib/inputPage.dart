@@ -4,9 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusableCard.dart';
 import 'iconContent.dart';
-
-const int baseCardColor = 0xB3272A4D;
-const int activeCardColor = 0x80414772;
+import 'constants.dart';
 
 enum Gender {
   MALE,
@@ -26,7 +24,7 @@ class _InputPageState extends State<InputPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF414772),
+        backgroundColor: Color(kAppBarColor),
         title: Center(
           child: Text(
             'BMI CALCULATOR',
@@ -60,8 +58,8 @@ class _InputPageState extends State<InputPage> {
                     Expanded(
                       child: ReusableCard(
                         color: selectedGender == Gender.MALE
-                            ? activeCardColor
-                            : baseCardColor,
+                            ? kActiveCardColor
+                            : kBaseCardColor,
                         childElement: IconContent(
                           icon: FontAwesomeIcons.mars,
                           label: 'MALE',
@@ -76,8 +74,8 @@ class _InputPageState extends State<InputPage> {
                     Expanded(
                       child: ReusableCard(
                         color: selectedGender == Gender.FEMALE
-                            ? activeCardColor
-                            : baseCardColor,
+                            ? kActiveCardColor
+                            : kBaseCardColor,
                         childElement: IconContent(
                           icon: FontAwesomeIcons.venus,
                           label: 'FEMALE',
@@ -95,7 +93,7 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                   flex: 4,
                   child: ReusableCard(
-                    color: baseCardColor,
+                    color: kBaseCardColor,
                     childElement: Container(),
                     onPress: () {},
                   )),
@@ -105,13 +103,13 @@ class _InputPageState extends State<InputPage> {
                   children: [
                     Expanded(
                       child: ReusableCard(
-                          color: baseCardColor,
+                          color: kBaseCardColor,
                           childElement: Container(),
                           onPress: () {}),
                     ),
                     Expanded(
                       child: ReusableCard(
-                          color: baseCardColor,
+                          color: kBaseCardColor,
                           childElement: Container(),
                           onPress: () {}),
                     ),
