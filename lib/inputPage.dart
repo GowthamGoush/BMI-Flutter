@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'customTextStyle.dart';
 import 'reusableCard.dart';
 import 'iconContent.dart';
 import 'constants.dart';
@@ -19,6 +20,8 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.NONE;
+
+  int height = 180;
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +97,57 @@ class _InputPageState extends State<InputPage> {
                   flex: 4,
                   child: ReusableCard(
                     color: kBaseCardColor,
-                    childElement: Container(),
+                    childElement: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        CustomTextStyle(
+                          textLabel: 'HEIGHT',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.baseline,
+                          textBaseline: TextBaseline.alphabetic,
+                          children: [
+                            CustomTextStyle(
+                              textLabel: height.toString(),
+                              fontColor: 0xFFFFFFFF,
+                              fontSize: 48,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 2.5,
+                            ),
+                            CustomTextStyle(
+                              textLabel: 'cm',
+                              fontSize: 18,
+                              letterSpacing: 2.5,
+                            ),
+                          ],
+                        ),
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                              thumbShape: RoundSliderThumbShape(
+                                  enabledThumbRadius: 16.0,
+                                  pressedElevation: 12.0),
+                              activeTrackColor: Colors.white,
+                              thumbColor: Color(0xFFEB1555),
+                              overlayColor: Color(0x29EB1555),
+                              overlayShape:
+                                  RoundSliderOverlayShape(overlayRadius: 32.0)),
+                          child: Slider(
+                            value: height.toDouble(),
+                            min: 120,
+                            max: 220,
+                            inactiveColor: Color(0xFF8D8E98),
+                            onChanged: (double value) {
+                              setState(() {
+                                height = value.round();
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                     onPress: () {},
                   )),
               Expanded(
