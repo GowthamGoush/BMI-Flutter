@@ -1,3 +1,4 @@
+import 'package:bmi_flutter_app/roundedIconButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,6 +23,8 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.NONE;
 
   int height = 180;
+  int weight = 50;
+  int age = 15;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +106,6 @@ class _InputPageState extends State<InputPage> {
                         CustomTextStyle(
                           textLabel: 'HEIGHT',
                           fontSize: 18,
-                          fontWeight: FontWeight.w900,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -157,13 +159,87 @@ class _InputPageState extends State<InputPage> {
                     Expanded(
                       child: ReusableCard(
                           color: kBaseCardColor,
-                          childElement: Container(),
+                          childElement: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomTextStyle(
+                                textLabel: 'WEIGHT',
+                                fontSize: 18,
+                              ),
+                              CustomTextStyle(
+                                textLabel: weight.toString(),
+                                fontColor: 0xFFFFFFFF,
+                                fontSize: 48,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 2.5,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RoundIconButton(
+                                      buttonFunction: () {
+                                        setState(() {
+                                          if (weight > 10) weight--;
+                                        });
+                                      },
+                                      buttonIcon: FontAwesomeIcons.minus),
+                                  SizedBox(
+                                    width: 16.0,
+                                  ),
+                                  RoundIconButton(
+                                      buttonFunction: () {
+                                        setState(() {
+                                          if (weight < 200) weight++;
+                                        });
+                                      },
+                                      buttonIcon: FontAwesomeIcons.plus)
+                                ],
+                              )
+                            ],
+                          ),
                           onPress: () {}),
                     ),
                     Expanded(
                       child: ReusableCard(
                           color: kBaseCardColor,
-                          childElement: Container(),
+                          childElement: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomTextStyle(
+                                textLabel: 'AGE',
+                                fontSize: 18,
+                              ),
+                              CustomTextStyle(
+                                textLabel: age.toString(),
+                                fontColor: 0xFFFFFFFF,
+                                fontSize: 48,
+                                fontWeight: FontWeight.w900,
+                                letterSpacing: 2.5,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  RoundIconButton(
+                                      buttonFunction: () {
+                                        setState(() {
+                                          age--;
+                                        });
+                                      },
+                                      buttonIcon: FontAwesomeIcons.minus),
+                                  SizedBox(
+                                    width: 16.0,
+                                  ),
+                                  RoundIconButton(
+                                      buttonFunction: () {
+                                        setState(() {
+                                          age++;
+                                        });
+                                      },
+                                      buttonIcon: FontAwesomeIcons.plus)
+                                ],
+                              )
+                            ],
+                          ),
                           onPress: () {}),
                     ),
                   ],
