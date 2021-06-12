@@ -4,3 +4,6 @@ const int kAppBarColor = 0xFF414772;
 const int kBaseCardColor = 0xB3272A4D;
 const int kActiveCardColor = 0x80414772;
 const int kFontColor = 0xFF8D8E98;
+const int kDefaultFontColor = 0xFFFFFFFF;
+const int kBottomContainerColor = 0xFFEB1555;
+const double kBottomContainerHeight = 80.0;
