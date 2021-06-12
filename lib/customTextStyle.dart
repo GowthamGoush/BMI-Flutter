@@ -21,7 +21,7 @@ class CustomTextStyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       textLabel,
-      style: GoogleFonts.balooTammudu(
+      style: TextStyle(
         color: Color(fontColor),
         fontSize: fontSize,
         fontWeight: fontWeight,
